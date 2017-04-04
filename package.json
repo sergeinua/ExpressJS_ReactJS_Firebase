@@ -4,9 +4,10 @@
   "description": "nodejs with react app",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Sergei",
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.2"
