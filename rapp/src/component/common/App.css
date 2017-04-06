@@ -12,11 +12,11 @@ Author URI: http://wfactory.com.ua
 
 @font-face {
   font-family: 'icomoon';
-  src:  url('../../fonts/icomoon.eot');
-  src:  url('../../fonts/icomoon.eot#iefix') format('embedded-opentype'),
-  url('../../fonts/icomoon.ttf') format('truetype'),
-  url('../../fonts/icomoon.woff') format('woff'),
-  url('../../fonts/icomoon.svg#icomoon') format('svg');
+  src:  url('../../../fonts/icomoon.eot');
+  src:  url('../../../fonts/icomoon.eot#iefix') format('embedded-opentype'),
+  url('../../../fonts/icomoon.ttf') format('truetype'),
+  url('../../../fonts/icomoon.woff') format('woff'),
+  url('../../../fonts/icomoon.svg#icomoon') format('svg');
   font-weight: normal; font-style: normal;
 }
 
@@ -188,7 +188,7 @@ nav a[data-state~="selected"] { color:#a2cc01; }
 .info-sections { margin:0; list-style:none; }
 .label { font-size:14px; opacity:0.75; color:#575757; }
 .product-prices { padding:1em 0; font-size:20px; line-height:normal; }
-select[name="quantity"] { overflow:hidden; width:100px; height:48px; margin:0 0 2em; padding:12px 40px; font-size:16px; line-height:1; color:#444; border:1px solid #888785; border-radius:0; background:transparent; background:#fff url(../../img/select-arrow.png) no-repeat right; background-position-x:90%; -webkit-appearance:none; }
+select[name="quantity"] { overflow:hidden; width:100px; height:48px; margin:0 0 2em; padding:12px 40px; font-size:16px; line-height:1; color:#444; border:1px solid #888785; border-radius:0; background:transparent; background:#fff url(../../../img/select-arrow.png) no-repeat right; background-position-x:90%; -webkit-appearance:none; }
 .product-form button { background:#ff9f24; }
 .info-section h3 { margin:1em 0 0.5em; text-align:left; color:#a2cc01; }
 

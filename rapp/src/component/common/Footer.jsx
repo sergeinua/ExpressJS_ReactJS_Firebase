@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import f_png from '../../img/f.png';
-import t_png from '../../img/t.png';
-import p_png from '../../img/p.png';
+import f_png from '../../../img/f.png';
+import t_png from '../../../img/t.png';
+import p_png from '../../../img/p.png';
 
 class Footer extends Component {
     render() {
