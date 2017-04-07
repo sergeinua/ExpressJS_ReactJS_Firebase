@@ -9,18 +9,45 @@ class ProductDetails extends Component {
         super(props);
         this.state = {
             productDetails: null,
-            loading: true
+            loading: true,
+            sessionId: null
         };
     }
 
     componentDidMount() {
-        this.updateProductInfo();
+        this.uploadProductInfo();
+        this.checkSessionId();
     }
 
-    updateProductInfo() {
+    checkSessionId() {
+        let _sessionId = localStorage.getItem('sessionId');
+        if (!_sessionId) {
+            let _id = (+new Date()).toString(36);
+            localStorage.setItem('sessionId', _id);
+            this.setState({sessionId: _id});
+        } else {
+            this.setState({sessionId: _sessionId});
+        }
+
+    }
+
+    uploadProductInfo() {
         firebase.database().ref().child('product').orderByChild('href').equalTo(this.props.params.slug).on('value', snap => {
             this.setState({productDetails: Object.values(snap.val())[0]});
             this.setState({loading: false});
+        });
+    }
+
+    handleAddToCart(quan) {
+        this.checkSessionId();
+        firebase.database().ref().child('product').orderByChild('href').equalTo(this.props.params.slug).on('value', snap => {
+            let _productId = Object.keys(snap.val())[0];
+            let _item = {
+                sessionId: this.state.sessionId,
+                productId: _productId,
+                quantity: quan
+            };
+            firebase.database().ref().child('cart').push(_item);
         });
     }
 
@@ -48,7 +75,7 @@ class ProductDetails extends Component {
                                         <div className="label">{this.state.productDetails.href}</div>
                                         <div className="product-prices">{this.state.productDetails.price}</div>
                                     </header>
-                                    <form className="product-form">
+                                    <div className="product-form">
                                         <label>Количество</label>
 
                                         <select name="quantity" id="">
@@ -59,8 +86,8 @@ class ProductDetails extends Component {
                                             <option value="5">5</option>
                                         </select>
 
-                                        <button type="submit">ДОБАВИТЬ В КОРЗИНУ</button>
-                                    </form>
+                                        <button type="button" onClick={() => this.handleAddToCart(2)}>ДОБАВИТЬ В КОРЗИНУ</button>
+                                    </div>
                                     <ul className="info-sections">
                                         <li className="info-section active">
                                             <h3>О ТОВАРЕ</h3>

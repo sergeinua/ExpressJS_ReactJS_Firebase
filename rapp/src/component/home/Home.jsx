@@ -19,6 +19,8 @@ class Home extends Component {
             this.setState({productItems: Object.values(snap.val())});
             this.setState({loading: false});
         });
+        if (!localStorage.getItem('sessionId'))
+            localStorage.setItem('sessionId', (+new Date()).toString(36));
     }
 
     render() {
